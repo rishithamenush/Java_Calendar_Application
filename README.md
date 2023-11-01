@@ -26,3 +26,22 @@
    ```bash
    git clone https://github.com/YourGithubUsername/MyJavaCalendarApp.git
    cd MyJavaCalendarApp
+
+<h2>📘 How to Use 📘</h2>
+Start the application with:- 
+  ./gradlew run --args="../your_calendar_file.cal"
+  (Replace your_calendar_file.cal with your actual calendar file's path.)
+
+<h2>🔌 In-built Plugins 🔌</h2>
+Repeat Plugin: Set events that reoccur.
+Notify Plugin: Stay informed about crucial events.
+<h2>💬 Feedback & Contributions 💬</h2>
+I'd love to hear your thoughts, feedback, or feature requests. Feel free to open an issue, send in a pull request, or just star ⭐ the project if you found it useful!
+
+<h2>📜 License 📜</h2>
+This project is under the MIT License. Feel free to use any part of the code.
+
+
+<p align="center">
+    Made with by [rishithamenush]
+</p>
