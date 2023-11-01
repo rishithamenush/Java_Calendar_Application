@@ -1,0 +1,62 @@
+event 2023-10-29 15:00:00 90 "Meeting with Client"
+event 2023-11-15 08:00:00 120 "Team Standup"
+event 2023-12-25 all-day 0 "Christmas Day"
+event 2023-10-28 16:00:00 90 "Project Kickoff Meeting"
+event 2023-10-31 19:41:00 60 "Budget Planning"
+event 2023-11-05 09:00:00 120 "Team Workshop"
+event 2023-11-10 15:30:00 90 "Client Presentation"
+event 2023-11-15 10:00:00 45 "Sales Strategy Review"
+event 2023-11-20 13:30:00 60 "Product Demo"
+event 2023-11-25 14:00:00 120 "Quarterly Review"
+event 2023-11-30 11:30:00 30 "Lunch Break"
+event 2023-12-03 16:00:00 90 "Marketing Campaign Meeting"
+event 2023-12-08 09:00:00 60 "Team Standup"
+event 2023-12-12 15:30:00 45 "Client Consultation"
+event 2023-12-17 10:00:00 120 "Product Development Workshop"
+event 2023-12-22 14:30:00 60 "Budget Review"
+event 2023-12-27 12:00:00 90 "Year-End Planning"
+event 2023-12-31 16:30:00 30 "New Year's Eve Celebration"
+event 2024-01-05 14:00:00 60 "Strategy Meeting"
+event 2024-01-10 11:30:00 120 "Project Presentation"
+event 2024-01-15 09:00:00 45 "Marketing Analysis"
+event 2024-01-20 13:30:00 30 "Team Huddle"
+event 2024-01-25 15:00:00 90 "Client Review"
+event 2023-01-01 all-day 0 "New Year’s Day"
+event 2023-07-04 all-day 0 "Independence Day"
+
+plugin com.example.pluginpkg.ExamplePlugin
+{
+    key1: "Sample Value 1"
+    key2: "Sample Value 2"
+}
+
+plugin com.example.plugin2pkg.DemoPlugin
+{
+    keyA: "X"
+    keyB: "Y"
+    keyC: "Z"
+}
+
+plugin edu.curtin.calplugins.Repeat
+{
+    title: "Sample Repeat Event",
+    startDate: "2023-10-30",
+    startTime: "15:00:00",
+    duration: 90,
+    repeat: 7
+}
+
+plugin edu.curtin.calplugins.Notify
+{
+    text: "Meeting"
+}
+
+script"
+print("Hello, world!")
+print("This is a sample script.")
+"
+script"
+event 2023-12-25 all-day 0 "Christmas Day"
+event 2023-01-01 all-day 0 "New Year's Day"
+event 2023-07-04 all-day 0 "Independence Day"
+"

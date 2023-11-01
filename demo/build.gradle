@@ -1,0 +1,18 @@
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':lib')
+}
+
+application {
+    mainClassName = 'edu.curtin.terminalgriddemo.Main'
+    applicationDefaultJvmArgs = ['-Dfile.encoding=UTF-8']
+}
+
+run {
+    args = project.findProperty('appArgs') ? project.findProperty('appArgs').split(',') : []
+}

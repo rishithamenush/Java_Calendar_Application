@@ -1,0 +1,85 @@
+options {
+    STATIC = false;
+    UNICODE_INPUT = true;
+}
+
+PARSER_BEGIN(ScriptParser)
+
+package edu.curtin.terminalgriddemo;
+
+public class ScriptParser {
+
+    public static void main(String args[]) throws ParseException {
+        ScriptParser parser = new ScriptParser(System.in);
+        parser.Script();
+        System.out.println("Script parsed successfully!");
+    }
+}
+
+PARSER_END(ScriptParser)
+
+SKIP :
+{
+    " "
+|   "\r"
+|   "\n"
+|   "\t"
+}
+
+TOKEN :
+{
+    < EVENT: "event" >
+|   < PLUGIN: "plugin" >
+|   < SCRIPT: "script" >
+|   < STRING: "\"" (~["\""])* "\"" >
+|   < DATE: (["0"-"9"])+ "-" (["0"-"9"])+ "-" (["0"-"9"])+ >
+|   < TIME: (["0"-"9"])+ ":" (["0"-"9"])+ >
+|   < INTEGER: (["0"-"9"])+ >
+}
+
+void Script() :
+{}
+{
+    ( Event() | Plugin() | ScriptContent() )*
+}
+
+void Event() :
+{
+    Token date, time, duration, title;
+}
+{
+    <EVENT>
+    date = <DATE>
+    time = <TIME>
+    duration = <INTEGER>
+    title = <STRING>
+    {
+        System.out.println("Parsed Event: Date=" + date.image + " Time=" + time.image + " Duration=" + duration.image + " Title=" + title.image);
+    }
+}
+
+void Plugin() :
+{
+    Token pluginId, key1, key2;
+}
+{
+    <PLUGIN>
+    pluginId = <STRING>
+    key1 = <STRING>
+    key2 = <STRING>
+    {
+        System.out.println("Parsed Plugin: PluginId=" + pluginId.image + " Key1=" + key1.image + " Key2=" + key2.image);
+    }
+}
+
+void ScriptContent() :
+{
+    Token content;
+}
+{
+    <SCRIPT>
+    content = <STRING>
+    {
+        System.out.println("Parsed Script: Content=" + content.image);
+    }
+}
